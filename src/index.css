@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.buy {
+  color: red
+}
+
+.sell {
+  color: green
+}
+
+table, td, th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center
+}
+
+input {
+  margin: 0 10px;
+}
+
+tr:nth-child(even){background-color: #c0c0c0;}
