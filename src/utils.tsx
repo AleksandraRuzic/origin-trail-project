@@ -5,12 +5,21 @@ export const convertToDatetime = (timestamp: string) => {
 }
 
 export const formatTransaction = (transaction: any, walletAdress: string) => {
-  transaction.isBuy = transaction.to && (walletAdress === transaction.from)
-  transaction.transactionBuddy = transaction.isBuy ? transaction.to : transaction.from
+
+  const isBuy = (walletAdress !== transaction.to)
+  const transactionBuddy = transaction.isBuy ? transaction.to : transaction.from
   const [date, time] = convertToDatetime(transaction.timeStamp)
-  transaction.date = date
-  transaction.time = time
-  return transaction
+  const formattedTransaction = {
+    'isBuy': isBuy,
+    'transactionBuddy': transactionBuddy,
+    'date' : date,
+    'time' : time,
+    'timeStamp' : transaction.timeStamp,
+    'value' : transaction.value,
+    'blockNumber' : transaction.blockNumber
+  }
+  
+  return formattedTransaction
 }
 
 export const sortBy = (a: any, b: any, sortAsc: boolean, headerSort: string) => {
